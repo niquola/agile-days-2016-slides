@@ -295,7 +295,7 @@
         </section>
 
         <section>
-          <h3>Непрерывная поставка,<br/>
+          <h3>Непрерывная поставка<br/>
           это <b class="red">cмелость</b></h3>
         </section>
 
@@ -311,26 +311,35 @@
         </section>
 
         <section>
-          <h3>Лабиринт разработки</h3>
-          <pre><code>
-          </code></pre>
+          <h3>На самом деле</h3>
+          <img src="maze.gif"/>
         </section>
 
         <section>
-          <h1>50%</h1>
-          <p>never been used<p>
+          <h1 class="red">50%</h1>
+          <p>features have <br/>
+            never been used<p>
+        </section>
+
+        <section>
+          <h3>Что делать?</h3>
+          <img src="wires.jpg"/>
+        </section>
+
+        <section>
+          <h3>Распутывать</h3>
         </section>
 
         <section>
           <h3>Более реалистичная модель</h3>
 
           <pre><code>
-                        [design]
+                        [analyze]
                        ----------
                       /    |     \
-              [idea] /     |      \ [implement]
+              [idea] /     |      \ [design]
                     /              \
-            [system] --> [team] <---[]
+            [system] --> [team] <---|
                     \      ^       /
             [deploy] \     |      / [implement]
                       \    |     /
@@ -339,12 +348,9 @@
           </code></pre>
         </section>
 
-        <section>
-          <h3>Распутываем</h3>
-        </section>
 
         <section>
-          <h3>Do my job and improve my job</h3>
+          <h3 class="red">Kaizen</h3>
           <pre><code>
     improve
 
@@ -353,50 +359,36 @@
     |   /                   M2 -> t2
     |  /                    M1 - dt -> M2
     | /                     t2 + dt ? t1
-    |____________________   n*t2 + dt ? t1
+    |/___________________   n*t2 + dt ? t1
                       job
           </code></pre>
-          <p class="red">Kaizen</p>
-
+          <p>my job is do my job and improve my job</p>
         </section>
 
-        <section>
-          <a href="https://docs.google.com/spreadsheets/d/1E7Doww6lTA_eXx8RWWrpowI9o8cBRVt_tjN1H5c--yw/edit?usp=sharing"><h3>DevOps Survey <br/>(26 persons)</a></h3>
-          <ul style="font-size: 18px">
-            <li>Alexander</li>
-            <li>@alxschwrz</li>
-            <li>artemyarulin</li>
-            <li>bhavenger</li>
-            <li>Maxim Filatov</li>
-            <li>mike1452</li>
-            <li>motor4ik</li>
-            <li>nicola</li>
-            <li>Pavel Forkert</li>
-            <li>prepor</li>
-            <li>ptchol</li>
-            <li>romeg_ul</li>
-            <li>Salangin</li>
-            <li>slick</li>
-            <li>StasStaStS#</li>
-            <li>timurb</li>
-          </ul>
-        </section>
 
         <section>
           <h3>Continious Integration</h3>
         </section>
 
         <section>
+          <p>
+            CI is a <b class="red">practice</b>
+            where members of a team integrate <b class="red">frequently</b>,
+            usually each person integrates <b class="red">at least daily</b>
+          </p>
+        </section>
+
+        <section>
           <h3>Pre & Post Coordination</h3>
           <pre><code>
-                 _______
-                /       \
-            []-           -[post-coordination]
-                \_______/
-                                   _______
-                                  /       \
-              [pre-coordination] -          -[]
-                                  \_______/
+                   _______
+                  /       \
+            [..]-           -[post-coordination]
+                  \_______/
+                                 _______
+                                /       \
+            [pre-coordination] -          -[..]
+                                \_______/
           </code></pre>
         </section>
 
@@ -420,7 +412,22 @@
         </section>
 
         <section>
-          <h3>Moрдочки</h3>
+          <a href="https://docs.google.com/spreadsheets/d/1E7Doww6lTA_eXx8RWWrpowI9o8cBRVt_tjN1H5c--yw/edit?usp=sharing">DevOps Survey <br/>(26 persons)</a>
+          <br/>
+          <pre><code>
+ Alexander                   @niquola
+ @alxschwrz                  Pavel Forkert
+ artemyarulin                prepor
+ bhavenger                   ptchol
+ Maxim Filatov               romeg_ul
+ mike1452                    Salangin
+ motor4ik                    slick
+ StasStaStS#                 timurb
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>VCS Moрдочки</h3>
           <hr/>
           <ul>
             <li>github - <b>70%</b></li>
@@ -430,15 +437,15 @@
         </section>
 
         <section>
-          <h3>Сервера</h3>
+          <h3>CI Сервера</h3>
           <hr/>
           <ul>
-            <li>Jenkins (OS)- 56%</li>
-            <li>TeamCity (cute)- 28%</li>
-            <li>Travis (service)- 16%</li>
-            <li>Bamboo - 8%</li>
-            <li>CicleCI - 4%</li>
-            <li>Vexor - 4%</li>
+            <li>Jenkins (OS)- <b>56%</b></li>
+            <li>TeamCity (nice)- <b>28%</b></li>
+            <li>Travis (service)- <b>16%</b></li>
+            <li>Bamboo - <b>8%</b></li>
+            <li>CicleCI - <b>4%</b></li>
+            <li>Vexor - <b>4%</b></li>
           </ul>
         </section>
 
@@ -491,35 +498,47 @@ before_script:
         </section>
 
         <section>
-          <h3>Infrastructure</h3>
-          <h4>Virtualization/Containers/Clouds</h4>
-          <h4>AWS<h4>
+          <h4 class="red">Virtualize your infrastructure</h4>
+
+          <hr/>
+          <ul>
+            <li>Virtualization</li>
+            <li>Containers</li>
+            <li>Clouds</li>
+          </ul>
+
+          <hr/>
+
+          <h4>AWS - SDK first<h4>
         </section>
 
         <section>
-          <h3>Configuration <br/>
-            Management</h3>
+          <h4>Configuration<br/>
+            Management</h4>
+          <hr/>
           <ul>
-            <li>Ansible - 13 </li>
-            <li>Docker - 11</li>
-            <li>Bash - 9</li>
-            <li>Chef - 6</li>
-            <li>Puppet - 1</li>
-            <li>SoldStack - 1</li>
+            <li>Ansible -  <b>50%</b></li>
+            <li>Docker - <b>26%</b></li>
+            <li>Bash - <b>23%</b></li>
+            <li>Chef - <b>20%</b></li>
+            <li>Puppet - <b>5%</b></li>
+            <li>SoldStack - <b>5%</b></li>
           </ul>
         </section>
 
         <section>
-          <h3>Staging</h3>
+          <h2 class="red">Staging</h2>
           <p>ваши седые волосы</p>
         </section>
 
         <section>
-          <h3>Deploy Strategy</h3>
+          <h4>Deploy Strategy<br/>
+            while dev</h4>
+          <hr/>
           <ul>
             <li>Blue/Green</li>
             <li>Canary Releases</li>
-            <li>Data Strategy</li>
+            <li>Data/Schema Migrations</li>
           </ul>
         </section>
 
@@ -532,10 +551,48 @@ before_script:
         </section>
 
         <section>
-          <h3>Community</h3>
+          <h3 class="red">Monitoring</h3>
+          <hr/>
+          <ul>
+            <li>Zabbix - 12</li>
+            <li class="red">Prometheus - 6</li>
+            <li>Nagios - 4</li>
+            <li>Sensu - 2</li>
+            <li>NewRelic - 4</li>
+            <li>DataDog - 3</li>
+            <li>Rieman - 2</li>
+          <ul/>
+        </section>
+
+        <section>
+        <h3 class="red">Logs</h3>
+        <hr>
+        <ul>
+          <li>Logstash - 12</li>
+          <li class="red">Heka - 2</li>
+          <li>Papertrail - 1</li>
+          <li>Graylog - 1</li>
+        </ul>
+        </section>
+
+        <section>
+          <h3 class="red">Платформы</h3>
+          <hr/>
+          <ul>
+            <li>Kubernetes - 3</li>
+            <li class="red">Heroku - 1</li>
+            <li>Mesos - 1</li>
+            <li>Helios - 1</li>
+            <li>Rancher - 1</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="red">Community</h3>
+          <hr>
           <ul>
             <li>hanops.ru</li>
-            <li>slack.hangops.com</li>
+            <li class="red">slack.hangops.com</li>
             <li>DevOps Msk</li>
             <li>DevOps 40 (SPb)</li>
           </ul>
@@ -551,6 +608,7 @@ before_script:
             <li>http://martinfowler.com/</li>
             <li>http://devopsweekly.com</li>
             <li>http://blog.kubernetes.io</li>
+            <li>...</li>
           <ul>
         </section>
 
@@ -565,7 +623,8 @@ before_script:
         </section>
 
         <section>
-          <h3>увидемся</h3>
+          <h1 class="red">Share your ideas!</h1>
+          <h3>эта сцена ждет вас</h3>
         </section>
       </div>
     </div>
