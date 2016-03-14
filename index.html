@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>nicola-AD-2016</title>
+
+    <meta name="description" content="FHIR">
+    <meta name="author" content="Nikolay Ryzhikov">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css"/>
+    <link rel="stylesheet" href="css/theme/white.css" id="theme"/>
+
+
+
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]><script src="lib/js/html5shiv.js"></script><![endif]-->
+    <style>
+     @font-face {
+         font-family: fontello;
+         src: url('font/fontello.woff') format('woff'), url('font/fontello.eot') format('embedded-opentype'),url('font/fontello.woff') format('woff'),url('font/fontello.svg') format('svg'),url('font/fontello.ttf') format('truetype');
+
+     }
+
+     body .hs-icon {
+         font-family: fontello;
+         text-transform: none;
+         -webkit-font-smoothing: antialiased;
+         text-align: center;
+         speak: none;
+         font-weight: normal;
+         text-decoration: inherit;
+         display: inline-block;
+         font-style: normal;
+         font-variant: normal;
+         -moz-osx-font-smoothing: grayscale;
+
+     }
+
+     body .hs-icon.icon-mapper:before {
+         content: '\e800';
+
+     }
+
+     body .hs-icon.icon-foodtaster:before {
+         content: '\e801';
+
+     }
+
+     body .hs-icon.icon-aidbox:before {
+         content: '\e806';
+
+     }
+
+     body .hs-icon.icon-fhirbase:before {
+         content: '\e802';
+
+     }
+
+     body .hs-icon.icon-formstamp:before {
+         content: '\e803';
+
+     }
+
+     body .hs-icon.icon-choice:before {
+         content: '\e804';
+
+     }
+
+     body .hs-icon.icon-samurai:before {
+         content: '\e805';
+
+     }
+
+    .reveal pre code {
+        background: black;
+        overflow: hidden;
+        max-height: 500px;
+        padding: 20px;
+    }
+
+     .reveal section img {
+         border: none;
+         box-shadow: none;
+     }
+     .slidernav img{
+         width: 80px;
+         display: inline-block;
+         margin: 10px;
+     }
+     h3 strong {
+         color: #DC322F;
+     }
+
+     .red {
+         color: #DC322F !important;
+     }
+
+     .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+         color: #002B36;
+     }
+
+     .reveal blockquote {
+         background: #FDF6E3;
+     }
+    </style>
+  </head>
+
+  <body>
+    <i style="position: absolute; left: 20px; top: 20px; color: #2D5795;" class="hs-icon icon-samurai"></i>
+    <img src="ad.png" style="position: absolute; bottom: 20px; left: 20px; width: 50px; background: #2D5795; opacity: 0.8;"/>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h3>Поток поставки</h3>
+          <img src="rafting.jpg"/>
+          <p style="color: #666;"> Agile Days 2016 by @niquola</p>
+          <a href="niquola.github.io/agile-days-2016-slides">niquola.github.io/agile-days-2016-slides</a>
+        </section>
+
+        <section style="top: 0px; display: block;" class="present">
+          <h3 style="font-size: 50px">
+            Рыжиков Николай
+          </h3>
+          <a href="http://health-samurai.io" style="font-size: 30px; color: #666;">Health Samurai, CTO</a>
+          <br/>
+          <img src="niquola.jpg" style="border:none; width: 400px; box-shado: none; background: transparent;">
+          <p style="letter-spacing: 32px;">
+            <a href="http://github.com/niquola">
+              <i class="fa fa-github"></i>
+            </a>
+            <a href="http://twitter.com/niquola">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="https://plus.google.com/u/0/+%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%D0%A0%D1%8B%D0%B6%D0%B8%D0%BA%D0%BE%D0%B2">
+              <i class="fa fa-google-plus"></i>
+            </a>
+            <a href="https://www.facebook.com/nicola.ryzhikov">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <ul>
+            <li>Health IT ~ 10y</li>
+            <li>FIHR</li>
+            <li>fprog SPb</li>
+            <li>piter-united.ru</li>
+            <li>clojure.ru</li>
+          </ul>
+          <hr/>
+          <p>clojure, postgres, standards</p>
+        </section>
+
+
+        <section>
+          <pre><code>
+> git pull
+> emacs -nw .
+# couple of hours
+> lein test
+> git add .
+> git ci -m 'lab orders for emergency physicians'
+> git push
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Сколько времени <br/>вам нужно?</h3>
+        </section>
+
+        <section>
+          <ul>
+            <li>1 час?</li>
+            <li>1 день?</li>
+            <li>1 неделя?</li>
+            <li>1 месяц?</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="serve.jpg" />
+        </section>
+
+        <section>
+          <h2>Почему?</h2>
+        </section>
+
+        <section>
+          <ul>
+            <li>страшно?</li>
+            <li>сложно?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Просто вы об этом не думали</h2>
+        </section>
+
+        <section>
+          <h2>Шаги</h2>
+          <hr/>
+          <ul>
+            <li>Идея и Дизайн</li>
+            <li>Разработка</li>
+            <li>Стэнд</li>
+            <li>Контроль качества</li>
+            <li>Доставка</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="red">Ценность</h3>
+          <hr/>
+          <ul>
+            <li><b class="red">Идея и Дизайн</b></li>
+            <li><b class="red">Разработка</b></li>
+            <li>Стэнд</li>
+            <li>Контроль качества</li>
+            <li>Доставка и Эксплуатация</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="red">Потери</h3>
+          <hr/>
+          <ul>
+            <li>Идея и Дизайн</li>
+            <li>Разработка</li>
+            <li><b class="red">Стэнд</b></li>
+            <li><b class="red">Контроль качества</b></li>
+            <li><b class="red">Доставка и Эксплуатация</b></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Потери</h3>
+          <h1 class="red">~80%</h1>
+        </section>
+
+        <section>
+          <h3>Хотите увеличить производительность?</h3>
+        </section>
+
+        <section>
+          <h3>Объявите войну <b class="red">потерям!</b></h3>
+        </section>
+
+        <section>
+          <h3>И все-таки...</h3>
+          <p>Быстрая и координированная работа:</p>
+          <hr/>
+          <ul>
+            <li>Прдуктовики</li>
+            <li>Aрхитекторов и Аналитиков</li>
+            <li>Разработчиков</li>
+            <li>Тестировщиков</li>
+            <li>Админов</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Как этого достичь?</h3>
+        </section>
+
+        <section>
+          <h3>Магическая формула</h3>
+          <hr/>
+          <ul>
+            <li>Посадите их вместе</li>
+            <li>Дайте полномочия и права</li>
+            <li>Пусть возьмут ответственность</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Непрерывная поставка,<br/>
+          это <b class="red">cмелость</b></h3>
+        </section>
+
+        <section>
+          <h3>Идеальный процесс?</h3>
+        </section>
+
+        <section>
+          <h3>Непреревная поставка</h3>
+          <pre><code>
+[Dev] -> [CI server] -> [Staging] -> [Tests]-> [Deploy]
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Лабиринт разработки</h3>
+          <pre><code>
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>50%</h1>
+          <p>never been used<p>
+        </section>
+
+        <section>
+          <h3>Более реалистичная модель</h3>
+
+          <pre><code>
+                        [design]
+                       ----------
+                      /    |     \
+              [idea] /     |      \ [implement]
+                    /              \
+            [system] --> [team] <---[]
+                    \      ^       /
+            [deploy] \     |      / [implement]
+                      \    |     /
+                       ----------
+                        [test]
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Распутываем</h3>
+        </section>
+
+        <section>
+          <h3>Do my job and improve my job</h3>
+          <pre><code>
+    improve
+
+    |       
+    |    /                  M1 -> t1
+    |   /                   M2 -> t2
+    |  /                    M1 - dt -> M2
+    | /                     t2 + dt ? t1
+    |____________________   n*t2 + dt ? t1
+                      job
+          </code></pre>
+          <p class="red">Kaizen</p>
+
+        </section>
+
+        <section>
+          <a href="https://docs.google.com/spreadsheets/d/1E7Doww6lTA_eXx8RWWrpowI9o8cBRVt_tjN1H5c--yw/edit?usp=sharing"><h3>DevOps Survey <br/>(26 persons)</a></h3>
+          <ul style="font-size: 18px">
+            <li>Alexander</li>
+            <li>@alxschwrz</li>
+            <li>artemyarulin</li>
+            <li>bhavenger</li>
+            <li>Maxim Filatov</li>
+            <li>mike1452</li>
+            <li>motor4ik</li>
+            <li>nicola</li>
+            <li>Pavel Forkert</li>
+            <li>prepor</li>
+            <li>ptchol</li>
+            <li>romeg_ul</li>
+            <li>Salangin</li>
+            <li>slick</li>
+            <li>StasStaStS#</li>
+            <li>timurb</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Continious Integration</h3>
+        </section>
+
+        <section>
+          <h3>Pre & Post Coordination</h3>
+          <pre><code>
+                 _______
+                /       \
+            []-           -[post-coordination]
+                \_______/
+                                   _______
+                                  /       \
+              [pre-coordination] -          -[]
+                                  \_______/
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>POST-coordination :(</h3>
+          <hr/>
+          <ul>
+            <li>Code Review</li>
+            <li>feature brances</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>PRE-coordination :)</h3>
+          <hr/>
+          <ul>
+            <li>Design Sessions</li>
+            <li>Pair Programming</li>
+            <li>Only Trunk</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Moрдочки</h3>
+          <hr/>
+          <ul>
+            <li>github - <b>70%</b></li>
+            <li>bitbucket/stash - <b>20%</b></li>
+            <li>gitlab - <b>8%</b></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Сервера</h3>
+          <hr/>
+          <ul>
+            <li>Jenkins (OS)- 56%</li>
+            <li>TeamCity (cute)- 28%</li>
+            <li>Travis (service)- 16%</li>
+            <li>Bamboo - 8%</li>
+            <li>CicleCI - 4%</li>
+            <li>Vexor - 4%</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Threashold</h3>
+          <pre><code>
+              |****        .
+              |    ****    .
+              |        ****.
+              |            *
+              |            *
+              |            *
+              |            ********
+              |            .
+              |____________.__________
+          </code></pre>
+        </section>
+
+        <section>
+          <h4>Travis</h4>
+          <pre><code>#  src/
+#  tests/
+#  .travis.yaml
+#-------------------
+
+language: node_js
+sudo: false
+node_js:
+    - "0.12"
+addons:
+  postgresql: "9.4"
+  apt:
+    packages:
+      - postgresql-contrib-9.4
+      - postgresql-9.4-plv8
+notifications:
+    slack: healthsamurai:lKl1jXV360NHMSzV2nwndkOv
+    slack: fhirbase:isitOv0KvPgaMzrccuAzVUwB
+
+#  - sudo apt-get install postgresql-contrib-9.4 postgresql-9.4-plv8  -qq -y
+before_script:
+  - npm install && cd plpl && npm install
+  - npm install -g mocha && npm install -g coffee-script
+  - psql -c "CREATE USER fb WITH PASSWORD 'fb'"
+  - psql -c 'ALTER ROLE fb WITH SUPERUSER'
+  - psql -c 'CREATE DATABASE fhirbase;' -U postgres
+  - psql -c '\dt' -U postgres
+  - cd ..
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Infrastructure</h3>
+          <h4>Virtualization/Containers/Clouds</h4>
+          <h4>AWS<h4>
+        </section>
+
+        <section>
+          <h3>Configuration <br/>
+            Management</h3>
+          <ul>
+            <li>Ansible - 13 </li>
+            <li>Docker - 11</li>
+            <li>Bash - 9</li>
+            <li>Chef - 6</li>
+            <li>Puppet - 1</li>
+            <li>SoldStack - 1</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Staging</h3>
+          <p>ваши седые волосы</p>
+        </section>
+
+        <section>
+          <h3>Deploy Strategy</h3>
+          <ul>
+            <li>Blue/Green</li>
+            <li>Canary Releases</li>
+            <li>Data Strategy</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Monitoring</li>
+            <li>Log aggregation</li>
+            <li>Alerting</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Community</h3>
+          <ul>
+            <li>hanops.ru</li>
+            <li>slack.hangops.com</li>
+            <li>DevOps Msk</li>
+            <li>DevOps 40 (SPb)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Resources</h3>
+          <ul>
+            <li>https://hangops.slack.com</li>
+            <li>http://hangops.ru</li>
+            <li>http://infoq.com</li>
+            <li>http://devopsdeflope.ru</li>
+            <li>http://martinfowler.com/</li>
+            <li>http://devopsweekly.com</li>
+            <li>http://blog.kubernetes.io</li>
+          <ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Visible Ops</li>
+            <li>Project Phoenix</li>
+            <li>Goal</li>
+            <li>Continuous Delivery</li>
+            <li>LEAN Enterpise</li>
+          <ul>
+        </section>
+
+        <section>
+          <h3>увидемся</h3>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+
+         transition: 'concave', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'plugin/highlight/highlight.pack.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'plugin/zoom-js/zoom.js', async: true },
+             { src: 'plugin/notes/notes.js', async: true }
+         ]
+     });
+    </script>
+  </body>
+</html>
